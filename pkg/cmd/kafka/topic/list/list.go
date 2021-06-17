@@ -141,7 +141,7 @@ func runCmd(opts *Options) error {
 		}
 	}
 
-	if topicData.GetCount() == 0 && opts.output == "" {
+	if topicData.GetTotal() == 0 && opts.output == "" {
 		logger.Info(opts.localizer.MustLocalize("kafka.topic.list.log.info.noTopics", localize.NewEntry("InstanceName", kafkaInstance.GetName())))
 
 		return nil

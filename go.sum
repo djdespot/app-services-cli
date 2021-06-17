@@ -312,7 +312,6 @@ github.com/google/protobuf v3.11.4+incompatible/go.mod h1:lUQ9D1ePzbH2PrIS7ob/bj
 github.com/google/renameio v0.1.0/go.mod h1:KWCgfxg9yswjAJkECMjeO8J8rahYeXnNhOm40UhjYkI=
 github.com/google/uuid v1.0.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-github.com/google/uuid v1.1.2 h1:EVhdT+1Kseyi1/pUmXKaFxYsDNy9RQYkMWRH68J/W7Y=
 github.com/google/uuid v1.1.2/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/googleapis/gax-go/v2 v2.0.4/go.mod h1:0Wqv26UfaUD9n4G6kQubkQ+KchISgw+vpHVxEJEs9eg=
 github.com/googleapis/gax-go/v2 v2.0.5/go.mod h1:DWXyrwAJ9X0FpwwEdw+IPEYBICEFu5mhpdKc/us6bOk=
@@ -539,8 +538,8 @@ github.com/prometheus/procfs v0.6.0/go.mod h1:cz+aTbrPOrUb4q7XlbU9ygM+/jj0fzG6c1
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
 github.com/redhat-developer/app-services-sdk-go v0.3.7 h1:Inuut25hhMeKbtBEMVHuTeJB86dT6jYBTszoea/ayRI=
 github.com/redhat-developer/app-services-sdk-go v0.3.7/go.mod h1:/3ABQrtQlCdfL8Qr3md0tyBtRnlPkU0zkNjJMyVO9SI=
-github.com/redhat-developer/service-binding-operator v0.8.0 h1:33nrUwKm+Osr8I/g9qZZ6Hf41dfePfZndS02/xyAYiI=
-github.com/redhat-developer/service-binding-operator v0.8.0/go.mod h1:Z3fFouJGqy08JVWBFgb9ZyDcddcqx+AUIuMOeMFU8pQ=
+github.com/redhat-developer/service-binding-operator v0.7.1 h1:oFB0m3iHaFf8bRotao+shKx8BmbWPE4krGvgmJF1wjI=
+github.com/redhat-developer/service-binding-operator v0.7.1/go.mod h1:Z3fFouJGqy08JVWBFgb9ZyDcddcqx+AUIuMOeMFU8pQ=
 github.com/rivo/uniseg v0.1.0 h1:+2KBaVoUmb9XzDsrx/Ct0W/EYOSFf/nWTauy++DprtY=
 github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=

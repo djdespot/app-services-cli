@@ -49,6 +49,8 @@ func main() {
 
 	rootCmd.InitDefaultHelpCmd()
 
+	fmt.Println("hello")
+
 	if generateDocs {
 		generateDocumentation(rootCmd)
 		os.Exit(0)

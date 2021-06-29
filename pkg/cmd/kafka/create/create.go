@@ -91,7 +91,10 @@ func NewCreateCommand(f *factory.Factory) *cobra.Command {
 
 			if !opts.IO.CanPrompt() && opts.name == "" {
 				return errors.New(opts.localizer.MustLocalize("kafka.create.argument.name.error.requiredWhenNonInteractive"))
-			} else if opts.name == "" && opts.provider == "" && opts.region == "" {
+			} else if opts.name == "" {
+				if opts.provider != "" || opts.region != "" {
+					return errors.New(opts.localizer.MustLocalize("kafka.create.argument.name.error.requiredWhenNonInteractive"))
+				}
 				opts.interactive = true
 			}
 
@@ -108,6 +111,10 @@ func NewCreateCommand(f *factory.Factory) *cobra.Command {
 	cmd.Flags().StringVar(&opts.region, flags.FlagRegion, "", opts.localizer.MustLocalize("kafka.create.flag.cloudRegion.description"))
 	cmd.Flags().StringVarP(&opts.outputFormat, "output", "o", "json", opts.localizer.MustLocalize("kafka.common.flag.output.description"))
 	cmd.Flags().BoolVar(&opts.autoUse, "use", true, opts.localizer.MustLocalize("kafka.create.flag.autoUse.description"))
+
+	_ = cmd.RegisterFlagCompletionFunc(flags.FlagProvider, func(cmd *cobra.Command, _ []string, _ string) ([]string, cobra.ShellCompDirective) {
+		return cmdutil.FetchCloudProviders(f)
+	})
 
 	flagutil.EnableOutputFlagCompletion(cmd)
 

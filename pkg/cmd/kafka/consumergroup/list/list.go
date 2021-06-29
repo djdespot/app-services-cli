@@ -11,6 +11,7 @@ import (
 	"github.com/redhat-developer/app-services-cli/internal/config"
 	"github.com/redhat-developer/app-services-cli/pkg/cmd/factory"
 	"github.com/redhat-developer/app-services-cli/pkg/cmd/flag"
+	"github.com/redhat-developer/app-services-cli/pkg/cmdutil"
 	flagutil "github.com/redhat-developer/app-services-cli/pkg/cmdutil/flags"
 	"github.com/redhat-developer/app-services-cli/pkg/connection"
 	"github.com/redhat-developer/app-services-cli/pkg/dump"
@@ -80,6 +81,10 @@ func NewListConsumerGroupCommand(f *factory.Factory) *cobra.Command {
 	cmd.Flags().Int32VarP(&opts.limit, "limit", "", 1000, opts.localizer.MustLocalize("kafka.consumerGroup.list.flag.limit"))
 	cmd.Flags().StringVarP(&opts.output, "output", "o", "", opts.localizer.MustLocalize("kafka.consumerGroup.list.flag.output.description"))
 	cmd.Flags().StringVar(&opts.topic, "topic", "", opts.localizer.MustLocalize("kafka.consumerGroup.list.flag.topic.description"))
+
+	_ = cmd.RegisterFlagCompletionFunc("topic", func(cmd *cobra.Command, _ []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		return cmdutil.FilterValidTopicNameArgs(f, toComplete)
+	})
 
 	flagutil.EnableOutputFlagCompletion(cmd)
 
@@ -187,7 +192,7 @@ func checkForConsumerGroups(count int, opts *Options, kafkaName string) (hasCoun
 		if opts.topic == "" {
 			logger.Info(opts.localizer.MustLocalize("kafka.consumerGroup.list.log.info.noConsumerGroups", kafkaNameTmplPair))
 		} else {
-			logger.Info(opts.localizer.MustLocalize("kafka.consumerGroup.list.log.info.noConsumerGroupsForTopic"), kafkaNameTmplPair, localize.NewEntry("TopicName", opts.topic))
+			logger.Info(opts.localizer.MustLocalize("kafka.consumerGroup.list.log.info.noConsumerGroupsForTopic", kafkaNameTmplPair, localize.NewEntry("TopicName", opts.topic)))
 		}
 
 		return false, nil
